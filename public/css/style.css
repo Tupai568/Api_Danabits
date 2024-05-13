@@ -1,0 +1,555 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --blue: #007bff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+section {
+  padding: 7% 7% 3%;
+  min-height: 100vh;
+}
+
+.notification {
+  text-align: center;
+  color: black;
+  font-size: .7rem;
+  margin: auto;
+  padding: 5px 0;
+}
+
+.success {
+  background: lightgreen;
+}
+
+.error {
+  background: lightcoral;
+}
+
+.fade-in-out {
+  animation: fade 5s forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.global {
+  border: 0;
+  height: 1px;
+  margin: 10px 0;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7%;
+  background-color: black;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar .logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.navbar .logo a h2 {
+  color: white;
+  font-weight: 500;
+}
+
+.navbar .logo a h2 span {
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.navbar .loginOrSigup {
+  display: flex;
+  gap: 1rem;
+  padding: 2px;
+}
+
+.navbar .loginOrSigup i {
+  font-size: 1.5rem;
+}
+
+.navbar .loginOrSigup .tombolLogin,
+.navbar .loginOrSigup .tombolSigup {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--blue);
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.navbar .loginOrSigup .tombolSigup {
+  background: green;
+}
+.navbar .loginOrSigup .tombolLogin:hover,
+.navbar .loginOrSigup .tombolSigup:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  min-height: 200vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.blur.active {
+  display: block;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.formLogin,
+.formRegister {
+  position: fixed;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+  top: 20%;
+  padding: 10px;
+  width: 500px;
+  transition: all 0.1s ease;
+  transform: translateY(-500%);
+  cursor: pointer;
+  z-index: 999;
+}
+
+.formLogin.active,
+.formRegister.active {
+  transform: translateY(-20%);
+}
+
+.formLogin .formInput,
+.formRegister .formInput {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  gap: 5px;
+  padding: 0 0.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+}
+
+.formLogin h1,
+.formRegister h1 {
+  font-weight: 500;
+  text-align: center;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.formLogin .forgotPassword,
+.formRegister .forgotPassword {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.formLogin .forgotPassword a,
+.formRegister .forgotPassword a {
+  color: gray;
+}
+
+.formLogin .forgotPassword a:hover,
+.formRegister .forgotPassword a:hover {
+  border-bottom: 1px solid gray;
+}
+
+.formLogin form {
+  width: 100%;
+}
+
+.formLogin .input,
+.formRegister .input {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.formLogin .formInput:focus-within,
+.formRegister .formInput:focus-within {
+  box-shadow: 0 0 10px var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.formLogin form span,
+.formRegister form span {
+  color: gray;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.formLogin form button,
+.formRegister form button {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background: var(--blue);
+  margin-top: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.formLogin form button:hover,
+.formRegister form button:hover {
+  background: rgb(3, 103, 218);
+}
+
+#menu {
+  font-size: 2rem;
+  display: none;
+}
+
+#cancel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: gray;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#cancel:hover {
+  color: black;
+}
+
+#user,
+#gembok,
+#show,
+#showRegister,
+#email {
+  color: gray;
+}
+
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background: #0a80e74d;
+  border: 1px solid white;
+  padding: 2rem;
+}
+
+.item .textEarn {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.item p {
+  text-align: center;
+}
+
+.item .join {
+  margin-top: 2rem;
+  padding: 10px 15px;
+  font-weight: 800;
+  color: white;
+  background: var(--blue);
+  border-radius: 5px;
+}
+
+.item .join:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.item .textLogDana {
+  font-size: 50px;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: -10px;
+  letter-spacing: 2px;
+}
+
+.item .logDana {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.item .logDana img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.item .logDana h1 {
+  font-weight: 500;
+  font-size: 45px;
+}
+
+.item .workDana {
+  width: 100%;
+  text-align: center;
+}
+
+.item .workDana .textWorkDana {
+  filter: drop-shadow(2px 0 0 black);
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 30px;
+  color: var(--blue);
+}
+
+.item .workDana .rules {
+  display: flex;
+  width: 100%;
+  gap: 3rem;
+}
+
+.item .workDana .rules h1 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.item .workDana .rules p {
+  font-weight: 300;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.item .workDana .walet {
+  display: flex;
+  justify-content: space-around;
+  gap: 5rem;
+  width: 100%;
+}
+
+.item .workDana .walet .waletOne {
+  width: 20rem;
+}
+
+.item .workDana .walet .waletOne h1 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.container-betwen {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-betwen .advertisers h1 {
+  text-align: center;
+}
+
+.container-betwen .advertisers {
+  margin-top: 5rem;
+  background: rgba(10, 128, 231, 0.3);
+  padding: 2rem 5rem;
+  width: 48%;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 75%;
+  }
+
+  .navbar .loginOrSigup .tombolLogin,
+  .navbar .loginOrSigup .tombolSigup {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  #menu {
+    display: block;
+    font-size: 3rem;
+  }
+
+  .loginOrSigup {
+    transform: translateY(-200%);
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background: black;
+    padding: 0 0 3rem;
+    height: 10rem;
+  }
+
+  .loginOrSigup.active {
+    transform: translateY(0);
+  }
+
+  .navbar .loginOrSigup .tombolLogin,
+  .navbar .loginOrSigup .tombolSigup {
+    width: 87%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 850px) {
+  html {
+    font-size: 60%;
+  }
+
+}
+
+@media (max-width: 600px) {
+  #user,
+  #gembok,
+  #show,
+  #showRegister,
+  #email {
+    font-size: 2.5rem;
+  }
+
+  .navbar .logo a h2 {
+    font-size: 2rem;
+  }
+
+  .navbar .logo a h2 span {
+    font-size: 2rem;
+  }
+
+  .navbar .loginOrSigup .tombolLogin,
+  .navbar .loginOrSigup .tombolSigup {
+    padding: 2px 5px;
+  }
+
+  .navbar .loginOrSigup .tombolLogin p,
+  .navbar .loginOrSigup .tombolSigup p,
+  .navbar .loginOrSigup .tombolLogin i,
+  .navbar .loginOrSigup .tombolSigup i {
+    font-size: 2rem;
+  }
+
+  .formLogin,
+  .formRegister {
+    width: 450px;
+  }
+
+  .formLogin form button,
+  .formRegister form button {
+    font-size: 2rem;
+  }
+
+  .formLogin.active,
+  .formRegister.active {
+    transform: translateY(0);
+  }
+
+  .item .textLogDana {
+    font-size: 3.5rem;
+    font-weight: 800;
+  }
+
+  .item .logDana h1 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  .item .logDana img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .item .workDana .rules .rulesEarn {
+    width: 100%;
+  }
+
+  .item .workDana .walet {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .item .workDana .walet .waletOne {
+    width: 100%;
+  }
+
+  .item .workDana .walet .waletOne h1 {
+    font-size: 2.5rem;
+  }
+  .container-betwen {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+
+  .container-betwen .advertisers {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .container-betwen .advertisers h1 {
+    font-size: 2rem;
+  }
+
+  .container-betwen .advertisers ul li {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .item {
+    margin-top: 5rem;
+  }
+
+  .formLogin,
+  .formRegister {
+    width: 40rem;
+  }
+}

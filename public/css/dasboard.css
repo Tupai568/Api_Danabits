@@ -1,0 +1,671 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --blue: #007bff;
+    --green: rgba(10, 128, 231, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+section {
+    padding: 7rem 7% 3%;
+    min-height: 100vh;
+}
+
+#menu {
+    display: none;
+}
+
+.notification {
+    text-align: center;
+    color: black;
+    font-size: .7rem;
+    margin: auto;
+    padding: 5px 0;
+}
+
+.success {
+    background: lightgreen;
+}
+
+.error {
+    background: lightcoral;
+}
+
+.fade-in-out {
+    animation: fade 5s forwards;
+}
+
+@keyframes fade {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 7%;
+    background-color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar .logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.navbar .logo a h2 {
+    color: white;
+    font-weight: 500;
+}
+
+.navbar .logo a h2 span {
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.navbar .navbar-list {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .navbar-list .list-item {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar .navbar-list .list-item:hover .list-judul span {
+    font-weight: 800;
+}
+
+.navbar .navbar-list .list-item .list-judul {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.navbar .navbar-list .list-item .list-content {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    top: 100%;
+    width: 10rem;
+    border-radius: 5px;
+    background: white;
+    list-style: none;
+}
+
+.navbar .navbar-list .list-item .list-content.active {
+    display: flex;
+}
+
+.navbar .navbar-list .list-item .list-content a li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.navbar .navbar-list .list-item .list-content a li:hover {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.navbar .navbar-list .list-item .list-content a li .bx {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.navbar .navbar-list .list-item .list-content a li span {
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.navbar .navbar-list .list-item .bx {
+    font-size: 1.5rem;
+}
+
+/*-- content --*/
+
+#content {
+    display: flex;
+    justify-content: space-between;
+}
+
+#content .container-hasil {
+    width: 25%;
+    margin-bottom: 1rem;
+}
+
+.cild-container-hasil {
+    background: var(--green);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.bonus-level {
+    width: 100%;
+    text-align: center;
+}
+
+.bonus-level h3,
+.bonus-level .multi {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.bonus-level h3 span {
+    font-weight: 300;
+}
+
+.claim-level {
+    width: 100%;
+    font-size: 0.8rem;
+    color: black;
+    background: white;
+    border-radius: 5px;
+}
+
+.bonus-level p:nth-child(4) {
+    letter-spacing: 1px;
+    font-size: 0.7rem;
+}
+
+.bonus-level p:nth-child(4) span {
+    color: goldenrod;
+}
+
+.bonus-level a {
+    display: inline-block;
+    width: 100%;
+    background: goldenrod;
+    color: black;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+#content .container-hasil .info-profil {
+    display: flex;
+    gap: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    padding: 0.1rem;
+}
+
+#content .container-hasil .info-profil .info-notif {
+    display: flex;
+    align-items: center;
+    background: var(--blue);
+    padding: 0.5rem 0.6rem;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#content .container-hasil .info-profil .info-user {
+    padding: 0.2rem;
+}
+
+#content .container-hasil .info-profil .info-user h3 {
+    font-size: 0.9rem;
+    color: green;
+}
+
+#content .container-hasil .info-profil .info-user .info-seting {
+    display: flex;
+    gap: 1px;
+    color: gray;
+}
+
+#content .container-hasil .info-profil .info-user .info-seting .item-seting {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 1px;
+}
+
+#content
+    .container-hasil
+    .info-profil
+    .info-user
+    .info-seting
+    .item-seting
+    .bx {
+    font-size: 0.8rem;
+}
+
+#content
+    .container-hasil
+    .info-profil
+    .info-user
+    .info-seting
+    .item-seting
+    span {
+    font-size: 0.6rem;
+}
+
+#content
+    .container-hasil
+    .info-profil
+    .info-user
+    .info-seting
+    .item-seting
+    span:hover {
+    text-decoration-line: underline;
+}
+
+#notif {
+    font-size: 1.5rem;
+}
+
+.info-hasil {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    padding: 0.7rem;
+}
+
+.info-hasil .list-hasil {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: gray;
+}
+
+.info-hasil .list-hasil .cild-list h3 {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.info-hasil .list-hasil .cild-list p {
+    font-weight: 800;
+    line-height: 0.9;
+    font-size: 0.7rem;
+}
+
+.info-hasil .list-hasil .bx {
+    font-size: 2rem;
+}
+
+.withdraw {
+    margin-top: -3px;
+    border-radius: 5px;
+    background: green;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 800;
+}
+
+.withdraw:hover {
+    background: rgb(2, 82, 2);
+}
+
+/*-- roll faucet --*/
+
+.container-faucet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+
+.cild-faucet {
+    margin-bottom: 1rem;
+    background: var(--green);
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+
+.roll-faucet {
+    width: 50rem;
+    border: 1px solid white;
+}
+
+.roll-faucet table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.roll-faucet table thead tr th {
+    width: 50%;
+    background: rgb(2, 82, 2);
+    color: gold;
+    height: 50px;
+}
+
+.roll-faucet table tbody {
+    background: white;
+    color: rgb(52, 45, 45);
+}
+
+.roll-faucet table tbody tr {
+    height: 50px;
+}
+
+.roll-faucet .jackpot {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: white;
+    color: green;
+}
+
+.spin-faucet {
+    width: 50rem;
+    text-align: center;
+    background: white;
+    border-radius: 3px;
+}
+
+.spin-faucet h3 {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    background: rgb(2, 82, 2);
+    padding: 0.5rem;
+    color: gold;
+}
+
+#timer {
+    padding: 1rem;
+}
+
+#timer > span {
+    color:  red;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+.form-run {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-run button {
+    width: 15rem;
+    background: goldenrod;
+    color: black;
+    font-weight: 800;
+    padding: 0.8rem;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.walet {
+    width: 30rem;
+    background: #0a80e74d;
+    margin: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+}
+
+.walet h1 {
+    text-align: center;
+    margin-bottom: .5rem;
+    letter-spacing: 2px;
+    color: goldenrod;
+}
+
+
+
+.form-walet > input {
+    width: 100%;
+    height: 2.5rem;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    border-radius: 2px;
+}
+
+.form-walet > button {
+    display: block;
+    margin: auto;
+    border: none;
+    width: 50%;
+    padding: .5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    background: goldenrod;
+}
+
+.form-walet > button:hover {
+    background: rgb(223, 181, 73);
+}
+
+.walet > a {
+    font-size: .8rem;
+    color: white;
+}
+
+.walet > a:hover {
+    border-bottom: 1px solid white;
+}
+
+
+@media (max-width: 1200px) {
+    .navbar .navbar-list {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .spin-faucet,
+    .roll-faucet {
+        width: 40rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    html {
+        font-size: 75%;
+    }
+
+    #menu {
+        display: block;
+        font-size: 3rem;
+    }
+
+    .navbar .navbar-list {
+        position: absolute;
+        flex-direction: column;
+        display: none;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        gap: 1rem;
+        padding: 0.5rem 7% 1rem;
+        background: black;
+        border-bottom: 1px solid white;
+    }
+
+    .navbar .navbar-list.active {
+        display: flex;
+    }
+
+    .navbar .navbar-list .list-item {
+        display: block;
+    }
+
+    .navbar .navbar-list .list-item .list-judul {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .navbar .navbar-list .list-item .list-judul .bx {
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-list .list-item .list-content {
+        position: static;
+        width: 100%;
+    }
+
+    .navbar .navbar-list .list-item .list-content a li .bx {
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+    .navbar .navbar-list .list-item .list-content a li span {
+        font-size: 1.2rem;
+    }
+
+    #content {
+        flex-direction: column;
+    }
+
+    #content .container-hasil,
+    #content .container-faucet {
+        width: 100%;
+    }
+
+    .cild-faucet {
+        width: 100%;
+    }
+
+    .spin-faucet,
+    .roll-faucet {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    section {
+        padding: 7rem 3%;
+    }
+
+    #notif {
+        font-size: 2.2rem;
+    }
+
+    #content .container-hasil .info-profil .info-user h3 {
+        font-size: 1.3rem;
+    }
+
+    #content
+        .container-hasil
+        .info-profil
+        .info-user
+        .info-seting
+        .item-seting
+        .bx {
+        font-size: 1.3rem;
+    }
+
+    #content
+        .container-hasil
+        .info-profil
+        .info-user
+        .info-seting
+        .item-seting
+        span {
+        font-size: 0.8rem;
+    }
+
+    .info-hasil .list-hasil .cild-list h3 {
+        font-size: 1.1rem;
+    }
+
+    .info-hasil .list-hasil .cild-list p {
+        line-height: 0.9;
+        font-size: 1rem;
+    }
+
+    .info-hasil .list-hasil .bx {
+        font-size: 3rem;
+    }
+
+    .bonus-level h3,
+    .bonus-level .multi {
+        font-size: 1.3rem;
+    }
+
+    .claim-level {
+        font-size: 1rem;
+    }
+
+    .bonus-level p:nth-child(4) {
+        font-size: 1rem;
+    }
+
+    .bonus-level a {
+        font-size: 1rem;
+    }
+
+    .roll-faucet table thead tr th {
+        font-size: 1.2rem;
+    }
+
+    .roll-faucet table tbody tr td,
+    .roll-faucet table tbody tr th {
+        font-size: 1.2rem;
+    }
+
+    .spin-faucet h3 {
+        padding: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .walet {
+        width: 90%;
+    }
+
+    .form-walet > input {
+        height: 3rem;
+    }
+}
